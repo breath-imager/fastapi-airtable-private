@@ -19,7 +19,7 @@ def cached_dotenv():
 
 
 cached_dotenv()
-# print("AIRTABLE_BASE_ID", os.environ.get("AIRTABLE_BASE_ID"))
+print("AIRTABLE_BASE_ID", os.environ.get("AIRTABLE_BASE_ID"))
 
 AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID")
 AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
