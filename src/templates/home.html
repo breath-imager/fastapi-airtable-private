@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="col-md-6 mx-auto text-center py-5">
+    <div class="py-5 my-5">
 
-<h1>Hello, fastapi - airtable!</h1>
+        <h1>Hello, Refraction!</h1>
 
-{% if submitted_email and did_send %}
-<p>Thank you for joining with {{ submitted_email }} </p>
-{% endif %}
-<form method="POST">
-    <input type="email" name="email" placeholder="Your Email" required="required" />
-    <input type="submit" value="Join waitlist" />
-</form>
+        {% if submitted_email and did_send %}
+        <p>Thank you for joining with {{ submitted_email }} </p>
+        {% endif %}
+        <form method="POST">
+            <input class="form-control" type="email" name="email" placeholder="Your Email" required="required" />
+            <input class="btn btn-primary mt-3" type="submit" value="Join waitlist" />
+        </form>
+    </div>
+</div>
 {% endblock %}
