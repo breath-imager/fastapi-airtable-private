@@ -26,12 +26,18 @@ AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
 AIRTABLE_TABLE_NAME = os.environ.get("AIRTABLE_TABLE_NAME")
 
 
-@app.get("/wallet_address/{wallet_address}")
-def check_whitelist(request: Request, wallet_address):
+@app.get("/")
+async def home_view(request: Request):
+
+    return templates.TemplateResponse("home.html", {"request": request})
+
+
+@app.post("/")
+def home_signup_view(request: Request, email: str = Form(...)):
     """
     TODO add CSRF for security
     """
-    print(request)
+
     # to send email to airtable
     airtable_client = Airtable(
         base_id=AIRTABLE_BASE_ID,
@@ -39,6 +45,16 @@ def check_whitelist(request: Request, wallet_address):
         table_name=AIRTABLE_TABLE_NAME,
     )
 
-    did_retrieve = airtable_client.retrieve_record(wallet_address)
+    did_retrieve = airtable_client.retrieve_record(
+        "0x5A94f1491044953d3874fABfAc75df21BF31893B")
 
-    return did_retrieve
+    did_send = airtable_client.create_records({"email": email})
+    return templates.TemplateResponse(
+        "home.html",
+        {
+            "request": request,
+            "submitted_email": email,
+            "did_send": did_send,
+            "did_retrieve": did_retrieve
+        }
+    )
