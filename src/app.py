@@ -36,7 +36,6 @@ async def check_whitelist(request: Request, wallet_address):
     """
     TODO add CSRF for security
     """
-    print(request)
     # to send email to airtable
     airtable_client = Airtable(
         base_id=AIRTABLE_BASE_ID,
