@@ -26,8 +26,13 @@ AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
 AIRTABLE_TABLE_NAME = os.environ.get("AIRTABLE_TABLE_NAME")
 
 
+@app.get("/")
+async def say_hi():
+    return {"message": "Hello World"}
+
+
 @app.get("/wallet_address/{wallet_address}")
-def check_whitelist(request: Request, wallet_address):
+async def check_whitelist(request: Request, wallet_address):
     """
     TODO add CSRF for security
     """
@@ -41,4 +46,4 @@ def check_whitelist(request: Request, wallet_address):
 
     did_retrieve = airtable_client.retrieve_record(wallet_address)
 
-    return did_retrieve
+    return {"message": did_retrieve}
