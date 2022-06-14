@@ -1,4 +1,4 @@
-A smol tool done in collaboration with Collab.land to add authentication based on whether a wallet has been greenlisted in an Airtable rather than having to be in possession of any one token.
+A smol tool 🛠️ done in collaboration with Collab.land to add authentication based on whether a wallet has been greenlisted in an Airtable rather than having to be in possession of any one token.
 
 Airtable class to create and retrieve records.
 
