@@ -39,7 +39,7 @@ class Airtable:
         if len(wallet_address) < 42:
             return False
 
-        # https://api.airtable.com/v0/appygGt0rRgfh6qxA/fastapi-to-airtable?fields%5B%5D=Notes&filterByFormula=SEARCH(%22ux%22%2C+Notes)&api_key=keyJwQSSqAZnD8KYR
+      
         endpoint = f'https://api.airtable.com/v0/{self.base_id}/{self.table_name}?fields%5B%5D=wallet_address&filterByFormula=SEARCH("{wallet_address}"%2C+wallet_address)&api_key={self.api_key}'
 
         headers = {
